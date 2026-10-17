@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101619" />
+    <title>PanStrobe — See the whole note. A handpan strobe tuner.</title>
+    <meta
+      name="description"
+      content="A harmonic strobe tuner made by handpan makers. See the fundamental, octave and compound fifth together, with a live spectrum and waterfall. Try Pro free for 8 days."
+    />
+    <link rel="canonical" href="https://panstrobe.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://panstrobe.app/" />
+    <meta property="og:title" content="PanStrobe — See the whole note." />
+    <meta
+      property="og:description"
+      content="A harmonic strobe tuner made by handpan makers. For iPhone, iPad and Apple silicon Mac."
+    />
+    <meta
+      property="og:image"
+      content="https://panstrobe.app/assets/social-preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/assets/panstrobe-icon.png" />
+    <link rel="apple-touch-icon" href="/assets/panstrobe-icon.png" />
+    <link
+      rel="preload"
+      as="font"
+      href="/assets/manrope-latin.woff2"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      // Preserve old tuner bookmarks and existing standalone PWA installs.
+      if (
+        location.hash.startsWith("#/") ||
+        matchMedia("(display-mode: standalone)").matches ||
+        navigator.standalone === true
+      ) {
+        location.replace(
+          "/app/" + (location.hash.startsWith("#/") ? location.hash : ""),
+        );
+      }
+    </script>
+    <script type="module" src="/landing.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PanStrobe",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "iOS 15+, iPadOS 15+, macOS 12+ on Apple silicon",
+        "url": "https://panstrobe.app/",
+        "downloadUrl": "https://apps.apple.com/app/id6797985549",
+        "author": { "@type": "Organization", "name": "Panlab Limited" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free download with in-app purchases. Includes an 8-day Pro trial."
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/" aria-label="PanStrobe home">
+        <img src="/assets/panstrobe-icon.png" alt="" width="42" height="42" />
+        <span>PanStrobe</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a class="nav-section" href="#how-it-works">How it works</a>
+        <a class="nav-section" href="#features">Features</a>
+        <a class="nav-section" href="#questions">Questions</a>
+        <a class="nav-download" href="#download"
+          >Get PanStrobe <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="maker-line">
+            <span class="maker-dot" aria-hidden="true"></span> Made by handpan
+            makers in Hong Kong
+          </p>
+          <h1 id="hero-title">See the<br />whole note.</h1>
+          <p class="hero-description">
+            The fundamental. The octave. The compound fifth. See how they tune
+            together with a harmonic strobe tuner built for handpans.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="store-link"
+              href="https://apps.apple.com/app/id6797985549"
+              aria-label="Download PanStrobe on the App Store"
+            >
+              <img
+                src="/assets/app-store-badge.svg"
+                width="166"
+                height="56"
+                alt="Download on the App Store"
+              />
+            </a>
+            <a class="text-link" href="/app/"
+              >Try it in your browser <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <p class="trial-note">8 days of Pro, free. No account needed.</p>
+          <div class="hero-platforms" aria-label="Available platforms">
+            <span>iPhone</span><span>iPad</span><span>Apple silicon Mac</span>
+          </div>
+        </div>
+        <figure class="hero-instrument">
+          <div class="phone-shell">
+            <img
+              class="phone-screen"
+              src="/assets/tuner-phone.webp"
+              width="880"
+              height="1912"
+              alt="PanStrobe showing a D3 note, three strobe rings, and a spectrum with a filled waterfall"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="partial-key" aria-label="The three handpan partials">
+            <div>
+              <span class="partial-ratio">3×</span><span>Compound fifth</span>
+            </div>
+            <div><span class="partial-ratio">2×</span><span>Octave</span></div>
+            <div>
+              <span class="partial-ratio">1×</span><span>Fundamental</span>
+            </div>
+          </div>
+          <figcaption>Real app interface · synthetic demo signal</figcaption>
+        </figure>
+      </section>
+
+      <div class="workshop-strip">
+        <div class="wrap">
+          <p>Built for the work between the strikes.</p>
+          <span>True strobe motion</span><span>Live partials</span
+          ><span>Fully offline</span>
+        </div>
+      </div>
+
+      <section
+        class="motion-section wrap section-space"
+        id="how-it-works"
+        aria-labelledby="motion-title"
+      >
+        <div class="section-copy">
+          <h2 id="motion-title">Find the stillness.<br />Find the pitch.</h2>
+          <p>
+            Flat moves left. Sharp moves right. When the pattern stands still,
+            that partial is in tune. Read each ring independently, so an in-tune
+            fundamental never hides a drifting octave.
+          </p>
+          <p class="muted">Move the slider to get a feel for it.</p>
+        </div>
+        <div class="strobe-demo" data-strobe-demo>
+          <div class="demo-readout">
+            <span>Partial tuning</span
+            ><output id="cents-value" for="detune">0.0 ¢</output>
+          </div>
+          <div class="demo-window" aria-hidden="true">
+            <div class="demo-stripes"></div>
+            <span class="demo-centre"></span>
+          </div>
+          <div class="demo-direction">
+            <span>Flat</span
+            ><span id="direction-value" aria-live="polite">In tune · still</span
+            ><span>Sharp</span>
+          </div>
+          <label class="sr-only" for="detune"
+            >Explore strobe motion, from 8 cents flat to 8 cents sharp</label
+          >
+          <input
+            id="detune"
+            type="range"
+            min="-8"
+            max="8"
+            step="0.1"
+            value="0"
+            aria-describedby="demo-description"
+          />
+          <div class="demo-footer">
+            <p id="demo-description">
+              Strobe illustration. No microphone needed.
+            </p>
+            <button id="reset-detune" type="button">Reset to in tune</button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="spectrum-section section-space"
+        id="features"
+        aria-labelledby="spectrum-title"
+      >
+        <div class="wrap">
+          <div class="section-heading">
+            <h2 id="spectrum-title">
+              Hear a little more.<br />See a lot more.
+            </h2>
+            <p>
+              A handpan note has a life after the strike. The spectrum shows
+              what is ringing; the waterfall shows how it changes as the sound
+              decays.
+            </p>
+          </div>
+          <figure class="desktop-preview">
+            <img
+              src="/assets/tuner-desktop.webp"
+              width="2400"
+              height="1560"
+              alt="Landscape PanStrobe with the strobe disc on the left and the live spectrum and waterfall on the right"
+              loading="lazy"
+            />
+            <figcaption>
+              <span>Strobe and spectrum, side by side.</span
+              ><span>Actual app · synthetic demo signal</span>
+            </figcaption>
+          </figure>
+          <div class="feature-notes">
+            <article>
+              <h3>Follow the partials</h3>
+              <p>
+                Watch the fundamental, octave and compound fifth at once, with
+                separate cents readouts.
+              </p>
+            </article>
+            <article>
+              <h3>Look between the peaks</h3>
+              <p>
+                Inspect a frequency, zoom into the spectrum, or follow a
+                resonance through the waterfall.
+              </p>
+            </article>
+            <article>
+              <h3>Keep the wobble</h3>
+              <p>
+                See the movement from neighbouring notes. The tuner does not
+                average away the detail you are listening for.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bench-section wrap section-space"
+        aria-labelledby="bench-title"
+      >
+        <figure class="rows-preview">
+          <img
+            src="/assets/tuner-rows.webp"
+            width="880"
+            height="1912"
+            alt="Horizontal strobe bands showing a separate tuning reading for each partial"
+            loading="lazy"
+          />
+          <figcaption>Prefer bands? Switch the view.</figcaption>
+        </figure>
+        <div class="bench-copy">
+          <h2 id="bench-title">Your bench.<br />Your way of tuning.</h2>
+          <dl class="bench-features">
+            <div>
+              <dt>Disc or bands</dt>
+              <dd>
+                The same tuning information, in a half-circle strobe or
+                horizontal rows.
+              </dd>
+            </div>
+            <div>
+              <dt>Follow a note. Or lock it.</dt>
+              <dd>
+                AUTO follows what you play. LOCK stays on the note you are
+                working on.
+              </dd>
+            </div>
+            <div>
+              <dt>Set your reference</dt>
+              <dd>
+                Adjust A4, cents offset and partial templates. Slow the strobe
+                when a note is far off.
+              </dd>
+            </div>
+            <div>
+              <dt>Listen to a reference</dt>
+              <dd>
+                Double-tap any strobe band for its pitch pipe. A pure sine tone,
+                right where you need it.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="maker-section">
+        <div class="wrap maker-inner">
+          <img
+            src="/assets/panstrobe-icon.png"
+            alt="PanStrobe handpan and sine-wave icon"
+            width="112"
+            height="112"
+            loading="lazy"
+          />
+          <div>
+            <h2>From a handpan maker’s bench.</h2>
+            <p>
+              We are Panlab. We make and tune handpans in Hong Kong. PanStrobe
+              grew out of the same work: listening closely, isolating a partial,
+              and making the next adjustment.
+            </p>
+            <p class="maker-signature">Made by Panlab Limited, Hong Kong.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="download-section wrap section-space"
+        id="download"
+        aria-labelledby="download-title"
+      >
+        <div class="download-copy">
+          <h2 id="download-title">Put the whole note<br />on your bench.</h2>
+          <p>
+            Start with 8 days of Pro. Explore every partial, the spectrum and
+            the pitch pipe before choosing a plan.
+          </p>
+          <a
+            class="store-link"
+            href="https://apps.apple.com/app/id6797985549"
+            aria-label="Download PanStrobe on the App Store"
+            ><img
+              src="/assets/app-store-badge.svg"
+              width="166"
+              height="56"
+              alt="Download on the App Store"
+              loading="lazy"
+          /></a>
+          <p class="download-platforms">
+            iPhone · iPad · Mac with Apple M1 or later
+          </p>
+        </div>
+        <div class="plan-comparison">
+          <div class="plan-line">
+            <h3>Free</h3>
+            <p>A chromatic tuner to keep.</p>
+            <ul>
+              <li>One fundamental strobe band</li>
+              <li>Disc or horizontal view</li>
+              <li>Automatic note detection and note lock</li>
+            </ul>
+          </div>
+          <div class="plan-line pro-line">
+            <h3>Pro <span>Included in your 8-day trial</span></h3>
+            <p>See and tune the whole note.</p>
+            <ul>
+              <li>Multiple partials at the same time</li>
+              <li>Spectrum, waterfall and peak labels</li>
+              <li>Band editor and partial templates</li>
+              <li>Per-band reference tones</li>
+            </ul>
+            <p class="plan-detail">
+              Monthly or yearly, through the App Store. See local prices and any
+              subscription trial offer in the app. After the 8-day app trial,
+              Free remains available.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="faq-section wrap section-space"
+        id="questions"
+        aria-labelledby="faq-title"
+      >
+        <h2 id="faq-title">Before your first strike.</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Is PanStrobe only for handpans?</summary>
+            <div>
+              <p>
+                It is built around handpan tuning, especially the fundamental,
+                octave and compound fifth. The chromatic tuner can also follow
+                other pitched instruments. Pro lets you choose different partial
+                templates.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>What happens after the free trial?</summary>
+            <div>
+              <p>
+                The first 8 days unlock Pro without starting a paid
+                subscription. After that, you can keep using the single-band
+                Free tuner, or choose a monthly or yearly Pro subscription in
+                the app. Any subscription free trial is a separate App Store
+                offer, shown before you confirm a purchase.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Does it work offline? Where does my audio go?</summary>
+            <div>
+              <p>
+                Tuning works fully offline once the app is installed. Audio is
+                analysed on your device and is not uploaded. You do not need an
+                account. An internet connection is needed to download the app or
+                buy or restore a subscription.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I use it on my Mac?</summary>
+            <div>
+              <p>
+                Yes, on a Mac with an Apple M1 chip or later and macOS 12 or
+                later. PanStrobe runs as the iPad app on Apple silicon. Intel
+                Macs can use the <a href="/app/">browser version</a> in a
+                supported browser with microphone access.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I try it before downloading?</summary>
+            <div>
+              <p>
+                Open the <a href="/app/">web tuner</a>, allow microphone access,
+                and play a note. The native app is available on the App Store
+                for iPhone, iPad and Apple silicon Mac.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>How do I get help or send feedback?</summary>
+            <div>
+              <p>
+                See the <a href="/support.html">support page</a> or write to
+                <a href="mailto:play@panlab.hk">play@panlab.hk</a>. We read
+                feedback as makers and as the people building the app.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <div>
+        <a class="footer-brand" href="/">PanStrobe</a>
+        <p>Made by Panlab Limited in Hong Kong.<br />© 2026 Panlab Limited</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="/app/">Web tuner</a><a href="/support.html">Support</a
+        ><a href="/privacy.html">Privacy</a
+        ><a
+          href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          >Terms of Use</a
+        ><a href="mailto:play@panlab.hk">Contact</a>
+      </nav>
+    </footer>
+  </body>
+</html>
